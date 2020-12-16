@@ -5,6 +5,7 @@ import pl.coderslab.charity.entity.Institution;
 import java.util.List;
 
 public interface InstitutionServiceInterface {
+
     List<Institution> findAll();
 
     Institution findById(long id);
