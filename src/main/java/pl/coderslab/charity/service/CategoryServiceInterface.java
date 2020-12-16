@@ -4,7 +4,7 @@ import pl.coderslab.charity.entity.Category;
 
 import java.util.List;
 
-public interface ICategoryService {
+public interface CategoryServiceInterface {
 
     List<Category> findAll();
 
