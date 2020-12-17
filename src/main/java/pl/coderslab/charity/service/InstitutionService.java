@@ -7,7 +7,10 @@ import pl.coderslab.charity.entity.Institution;
 import pl.coderslab.charity.repository.CategoryRepository;
 import pl.coderslab.charity.repository.InstitutionRepository;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Service
 @RequiredArgsConstructor
@@ -33,4 +36,5 @@ public class InstitutionService implements InstitutionServiceInterface {
     public void save(Institution Institution) {
         institutionRepository.save(Institution);
     }
+
 }
