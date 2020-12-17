@@ -24,6 +24,8 @@ public class HomePageController {
         model.addAttribute("institutions", institutionMap);
         long allBagsSum = donationServiceInterface.sumBagsFromAllDonations();
         model.addAttribute("allBags", allBagsSum);
+        long allDonations = donationServiceInterface.sumAllDonations();
+        model.addAttribute("allDonations", allDonations);
         return "index";
     }
 

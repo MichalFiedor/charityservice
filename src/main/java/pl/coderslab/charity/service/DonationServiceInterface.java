@@ -15,4 +15,6 @@ public interface DonationServiceInterface {
     void save(Donation donation);
 
     long sumBagsFromAllDonations();
+
+    long sumAllDonations();
 }
