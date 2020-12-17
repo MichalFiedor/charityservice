@@ -3,6 +3,7 @@ package pl.coderslab.charity.service;
 import pl.coderslab.charity.entity.Institution;
 
 import java.util.List;
+import java.util.Map;
 
 public interface InstitutionServiceInterface {
 

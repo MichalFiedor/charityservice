@@ -32,4 +32,14 @@ public class DonationService implements DonationServiceInterface {
     public void save(Donation donation) {
         donationRepository.save(donation);
     }
+
+    @Override
+    public long sumBagsFromAllDonations() {
+        return donationRepository.sumAllBags();
+    }
+
+    @Override
+    public long sumAllDonations() {
+        return donationRepository.countAllDonations();
+    }
 }
