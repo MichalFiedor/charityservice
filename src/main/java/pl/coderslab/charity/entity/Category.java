@@ -15,7 +15,6 @@ public class Category {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     private String name;
-    @ManyToMany
-    @JoinTable(name = "category_donation")
+    @ManyToMany(mappedBy = "categories")
     private List<Donation> donations;
 }
