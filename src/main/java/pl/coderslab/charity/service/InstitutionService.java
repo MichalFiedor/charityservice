@@ -1,40 +1,17 @@
 package pl.coderslab.charity.service;
 
-import lombok.RequiredArgsConstructor;
-import org.springframework.stereotype.Service;
-import pl.coderslab.charity.entity.Category;
 import pl.coderslab.charity.entity.Institution;
-import pl.coderslab.charity.repository.CategoryRepository;
-import pl.coderslab.charity.repository.InstitutionRepository;
 
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@Service
-@RequiredArgsConstructor
-public class InstitutionService implements InstitutionServiceInterface {
-    private final InstitutionRepository institutionRepository;
+public interface InstitutionService {
 
-    @Override
-    public List<Institution> findAll() {
-        return institutionRepository.findAll();
-    }
+    List<Institution> findAll();
 
-    @Override
-    public Institution findById(long id) {
-        return institutionRepository.findById(id).get();
-    }
+    Institution findById(long id);
 
-    @Override
-    public void delete(long id) {
-        institutionRepository.deleteById(id);
-    }
+    void delete(long id);
 
-    @Override
-    public void save(Institution Institution) {
-        institutionRepository.save(Institution);
-    }
-
+    void save(Institution institution);
 }

@@ -10,9 +10,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import pl.coderslab.charity.entity.Category;
 import pl.coderslab.charity.entity.Donation;
 import pl.coderslab.charity.entity.Institution;
-import pl.coderslab.charity.service.CategoryServiceInterface;
-import pl.coderslab.charity.service.DonationServiceInterface;
-import pl.coderslab.charity.service.InstitutionServiceInterface;
+import pl.coderslab.charity.service.CategoryService;
+import pl.coderslab.charity.service.DonationService;
+import pl.coderslab.charity.service.InstitutionService;
 
 import java.util.List;
 
@@ -20,9 +20,9 @@ import java.util.List;
 @RequiredArgsConstructor
 @RequestMapping("/donation")
 public class DonationController {
-    private final CategoryServiceInterface categoryService;
-    private final InstitutionServiceInterface institutionService;
-    private final DonationServiceInterface donationService;
+    private final CategoryService categoryService;
+    private final InstitutionService institutionService;
+    private final DonationService donationService;
 
     @GetMapping("")
     public String showForm(Model model){

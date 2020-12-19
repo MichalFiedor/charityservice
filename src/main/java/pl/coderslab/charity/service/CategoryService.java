@@ -1,34 +1,16 @@
 package pl.coderslab.charity.service;
 
-import lombok.RequiredArgsConstructor;
-import org.springframework.stereotype.Service;
 import pl.coderslab.charity.entity.Category;
-import pl.coderslab.charity.repository.CategoryRepository;
 
 import java.util.List;
 
-@Service
-@RequiredArgsConstructor
-public class CategoryService implements CategoryServiceInterface {
-    private final CategoryRepository categoryRepository;
+public interface CategoryService {
 
-    @Override
-    public List<Category> findAll() {
-        return categoryRepository.findAll();
-    }
+    List<Category> findAll();
 
-    @Override
-    public Category findById(long id) {
-        return categoryRepository.findById(id).get();
-    }
+    Category findById(long id);
 
-    @Override
-    public void delete(long id) {
-        categoryRepository.deleteById(id);
-    }
+    void delete(long id);
 
-    @Override
-    public void save(Category category) {
-        categoryRepository.save(category);
-    }
+    void save(Category category);
 }
