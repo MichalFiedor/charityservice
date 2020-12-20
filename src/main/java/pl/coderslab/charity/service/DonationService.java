@@ -1,45 +1,20 @@
 package pl.coderslab.charity.service;
 
-import lombok.RequiredArgsConstructor;
-import org.springframework.stereotype.Service;
-import pl.coderslab.charity.entity.Category;
 import pl.coderslab.charity.entity.Donation;
-import pl.coderslab.charity.repository.DonationRepository;
 
 import java.util.List;
 
-@Service
-@RequiredArgsConstructor
-public class DonationService implements DonationServiceInterface {
-    private final DonationRepository donationRepository;
+public interface DonationService {
 
-    @Override
-    public List<Donation> findAll() {
-        return donationRepository.findAll();
-    }
+    List<Donation> findAll();
 
-    @Override
-    public Donation findById(long id) {
-        return donationRepository.findById(id).get();
-    }
+    Donation findById(long id);
 
-    @Override
-    public void delete(long id) {
-        donationRepository.deleteById(id);
-    }
+    void delete(long id);
 
-    @Override
-    public void save(Donation donation) {
-        donationRepository.save(donation);
-    }
+    void save(Donation donation);
 
-    @Override
-    public long sumBagsFromAllDonations() {
-        return donationRepository.sumAllBags();
-    }
+    Long sumBagsFromAllDonations();
 
-    @Override
-    public long sumAllDonations() {
-        return donationRepository.countAllDonations();
-    }
+    Long sumAllDonations();
 }

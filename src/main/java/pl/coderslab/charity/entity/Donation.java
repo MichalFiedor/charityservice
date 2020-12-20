@@ -1,5 +1,6 @@
 package pl.coderslab.charity.entity;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.format.annotation.DateTimeFormat;
@@ -18,10 +19,10 @@ public class Donation {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     private Integer quantity;
-    @ManyToMany
+    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinTable(name = "category_donation")
     private List<Category> categories;
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     private Institution institution;
     private String street;
     private String city;

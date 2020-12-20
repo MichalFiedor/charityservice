@@ -164,6 +164,32 @@ document.addEventListener("DOMContentLoaded", function() {
       this.$step.parentElement.hidden = this.currentStep >= 5;
 
       // TODO: get data from inputs and show them in summary
+      let summary = document.getElementsByClassName("summary--text");
+      let institutionForm = document.querySelector("section").children[1].children[1].children[2];
+
+      let address = document.querySelector('input[name=address]');
+      let city = document.getElementsByName("city");
+      let postcode = document.getElementsByName("postcode");
+      let phone = document.getElementsByName("phone");
+      let data = document.getElementsByName("data");
+      let time = document.getElementsByName("time");
+      let more_info = document.getElementsByName("more_info");
+      let bags = document.getElementById("quantity").value;
+      summary[0].innerHTML=bags + " worki ubrań w dobrym stanie dla dzieci";
+      console.log(address);
+      console.log(city);
+      console.log(postcode);
+      console.log(phone);
+      console.log(data);
+      console.log(time);
+      console.log(more_info);
+      // address.innerHTML = address.value;
+      // city.innerHTML = city.value;
+      // postcode.innerHTML = postcode.value;
+      // phone.innerHTML = phone.value;
+      // data.innerHTML = data.value;
+      // time.innerHTML = time.value;
+      // more_info.innerHTML = more_info.value;
     }
 
   }
