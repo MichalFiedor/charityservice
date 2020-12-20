@@ -6,6 +6,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import pl.coderslab.charity.entity.Role;
 import pl.coderslab.charity.entity.User;
+import pl.coderslab.charity.exception.UserAlreadyExistException;
 import pl.coderslab.charity.repository.RoleRepository;
 import pl.coderslab.charity.repository.UserRepository;
 
@@ -26,12 +27,19 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public void saveUser(User user) {
+    public void saveUser(User user) throws UserAlreadyExistException {
+        if(userExist(user.getUserName())){
+            throw new UserAlreadyExistException("Account with that user name: " + user.getUserName() + " already exists.");
+        }
         user.setPassword(passwordEncoder.encode(user.getPassword()));
         user.setEnabled(1);
         Role userRole = roleRepository.findByName("ROLE_USER");
         user.setRoles(new ArrayList<>(Arrays.asList(userRole)));
         userRepository.save(user);
+    }
 
+
+    private boolean userExist(String userName) {
+        return userRepository.findByUserName(userName)!=null;
     }
 }

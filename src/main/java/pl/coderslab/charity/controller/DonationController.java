@@ -11,6 +11,7 @@ import pl.coderslab.charity.entity.Category;
 import pl.coderslab.charity.entity.Donation;
 import pl.coderslab.charity.entity.Institution;
 import pl.coderslab.charity.entity.User;
+import pl.coderslab.charity.exception.UserAlreadyExistException;
 import pl.coderslab.charity.service.CategoryService;
 import pl.coderslab.charity.service.DonationService;
 import pl.coderslab.charity.service.InstitutionService;
@@ -35,7 +36,7 @@ public class DonationController {
     }
 
     @PostMapping("/add")
-    public String addDonation(@ModelAttribute Donation donation, Principal principal){
+    public String addDonation(@ModelAttribute Donation donation, Principal principal) throws UserAlreadyExistException {
         String userName = principal.getName();
         User user = userService.findByUserName(userName);
         user.addDonation(donation);

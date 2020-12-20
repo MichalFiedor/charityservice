@@ -22,7 +22,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
     @Autowired
     UserDetailsService userDetailsService;
 
-
     @Bean
     public BCryptPasswordEncoder passwordEncoder(){
         return new BCryptPasswordEncoder();
@@ -60,6 +59,13 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
         return new SpringDataUserDetailsService();
     }
 
+    @Bean
+    public DaoAuthenticationProvider authProvider() {
+        final DaoAuthenticationProvider authProvider = new DaoAuthenticationProvider();
+        authProvider.setUserDetailsService(userDetailsService);
+        authProvider.setPasswordEncoder(passwordEncoder());
+        return authProvider;
+    }
 }
 
 

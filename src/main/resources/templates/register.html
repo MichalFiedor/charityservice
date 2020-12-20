@@ -44,7 +44,7 @@
         <div class="form-group">
           <input type="password" name="password2" placeholder="Powtórz hasło" />
         </div>
-
+        <p th:if="${userExists}" th:text="|User with that email already exists. You must use another email address.|"></p>
         <div class="form-group form-group--buttons">
           <a href="login.html" class="btn btn--without-border">Zaloguj się</a>
           <button class="btn" type="submit">Załóż konto</button>

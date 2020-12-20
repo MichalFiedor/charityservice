@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import pl.coderslab.charity.entity.User;
+import pl.coderslab.charity.exception.UserAlreadyExistException;
 import pl.coderslab.charity.service.UserService;
 
 @Controller
@@ -21,8 +22,13 @@ public class RegistrationController {
     }
 
     @PostMapping("/registration")
-    public String registrationAction(@ModelAttribute User user){
-        userService.saveUser(user);
+    public String registrationAction(@ModelAttribute User user, Model model){
+        try {
+            userService.saveUser(user);
+        } catch (UserAlreadyExistException e) {
+            model.addAttribute("userExists", true);
+            return "register";
+        }
         return "index";
     }
 }
