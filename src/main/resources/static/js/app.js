@@ -164,32 +164,37 @@ document.addEventListener("DOMContentLoaded", function() {
       this.$step.parentElement.hidden = this.currentStep >= 5;
 
       // TODO: get data from inputs and show them in summary
-      let summary = document.getElementsByClassName("summary--text");
-      let institutionForm = document.querySelector("section").children[1].children[1].children[2];
+      let summaryBags = document.getElementsByClassName("summary--text");
 
-      let address = document.querySelector('input[name=address]');
-      let city = document.getElementsByName("city");
-      let postcode = document.getElementsByName("postcode");
-      let phone = document.getElementsByName("phone");
-      let data = document.getElementsByName("data");
-      let time = document.getElementsByName("time");
-      let more_info = document.getElementsByName("more_info");
+      let institutionInput = document.querySelectorAll("#institutions input");
+      let institutionSummary = document.querySelector("#institution");
+      let institutionNames = document.querySelectorAll("#institutionName");
+      let checkBoxes = document.querySelectorAll(".checkbox.radio");
+
+
+      let addressSummary = document.querySelectorAll("#addressDataSummary li");
+      let pickUpSummary = document.querySelectorAll("#pickUpSummary li");
+
+      let addressValue = document.querySelector("#addressInput").value;
+      let cityValue = document.querySelector("#cityInput").value;
+      let postCodeValue = document.querySelector("#postCodeInput").value;
+      let phoneNumberValue = document.querySelector("#phoneNumberInput").value;
+
+      let addressDataValueArray=[addressValue, cityValue, postCodeValue, phoneNumberValue];
+      for(let i=0; i<addressSummary.length;i++){
+        addressSummary[i].innerHTML=addressDataValueArray[i];
+      }
+
+      let pickUpDateValue = document.querySelector("#pickUpDateInput").value;
+      let pickUpTimeValue = document.querySelector("#pickUpTimeInput").value;
+      let pickUpCommentValue = document.querySelector("#pickUpCommentInput").value;
+      let pickUpValueArray = [pickUpDateValue, pickUpTimeValue, pickUpCommentValue];
+      for(let i=0; i<pickUpSummary.length;i++){
+        pickUpSummary[i].innerHTML=pickUpValueArray[i];
+      }
+
       let bags = document.getElementById("quantity").value;
-      summary[0].innerHTML=bags + " worki ubrań w dobrym stanie dla dzieci";
-      console.log(address);
-      console.log(city);
-      console.log(postcode);
-      console.log(phone);
-      console.log(data);
-      console.log(time);
-      console.log(more_info);
-      // address.innerHTML = address.value;
-      // city.innerHTML = city.value;
-      // postcode.innerHTML = postcode.value;
-      // phone.innerHTML = phone.value;
-      // data.innerHTML = data.value;
-      // time.innerHTML = time.value;
-      // more_info.innerHTML = more_info.value;
+      summaryBags[0].innerHTML=bags + " worki ubrań w dobrym stanie dla dzieci";
     }
 
   }
