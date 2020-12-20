@@ -170,6 +170,13 @@ document.addEventListener("DOMContentLoaded", function() {
       let institutionSummary = document.querySelector("#institution");
       let institutionNames = document.querySelectorAll("#institutionName");
       let checkBoxes = document.querySelectorAll(".checkbox.radio");
+        for(let i=0; i<checkBoxes;i++){
+          if(institutionInput[i].checked){
+            institutionSummary.innerHTML=institutionNames[i].innerText;
+          }
+        }
+
+
 
 
       let addressSummary = document.querySelectorAll("#addressDataSummary li");

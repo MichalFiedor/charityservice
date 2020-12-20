@@ -18,8 +18,14 @@ public class User {
     private String firstName;
     private String lastName;
     private String password;
+    @OneToMany(cascade = CascadeType.REMOVE)
+    private List<Donation>donations;
     private int enabled;
     @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinTable(name="user_role")
     private List<Role> roles;
+
+    public void addDonation(Donation donation){
+        donations.add(donation);
+    }
 }

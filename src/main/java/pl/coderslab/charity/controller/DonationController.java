@@ -10,10 +10,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import pl.coderslab.charity.entity.Category;
 import pl.coderslab.charity.entity.Donation;
 import pl.coderslab.charity.entity.Institution;
+import pl.coderslab.charity.entity.User;
 import pl.coderslab.charity.service.CategoryService;
 import pl.coderslab.charity.service.DonationService;
 import pl.coderslab.charity.service.InstitutionService;
+import pl.coderslab.charity.service.UserService;
 
+import java.security.Principal;
 import java.util.List;
 
 @Controller
@@ -23,6 +26,7 @@ public class DonationController {
     private final CategoryService categoryService;
     private final InstitutionService institutionService;
     private final DonationService donationService;
+    private final UserService userService;
 
     @GetMapping("")
     public String showForm(Model model){
@@ -31,8 +35,12 @@ public class DonationController {
     }
 
     @PostMapping("/add")
-    public String addDonation(@ModelAttribute Donation donation){
+    public String addDonation(@ModelAttribute Donation donation, Principal principal){
+        String userName = principal.getName();
+        User user = userService.findByUserName(userName);
+        user.addDonation(donation);
         donationService.save(donation);
+        userService.saveUser(user);
         return "form-confirmation";
     }
 
