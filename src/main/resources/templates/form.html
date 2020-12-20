@@ -76,12 +76,12 @@
             <h3>Wybierz organizacje, której chcesz pomóc:</h3>
 
             <th:block th:each="institution : ${institutions}">
-            <div class="form-group form-group--checkbox">
+            <div class="form-group form-group--checkbox" id="institutions">
               <label>
                 <input type="radio" name="organization" th:value="${institution.id}" th:field="*{institution}"/>
                 <span class="checkbox radio"></span>
                 <span class="description">
-                  <div class="title" th:text="|Fundacja ${institution.name}|"></div>
+                  <div class="title" id="institutionName" th:text="|Fundacja ${institution.name}|"></div>
                   <div class="subtitle" th:text="|Cel i misja: ${institution.description}|"></div>
                 </span>
               </label>
@@ -102,22 +102,22 @@
               <div class="form-section--column">
                 <h4>Adres odbioru</h4>
                 <div class="form-group form-group--inline">
-                  <label> Ulica <input type="text" name="address" th:field="*{street}"/> </label>
+                  <label> Ulica <input type="text" name="address" id="addressInput" th:field="*{street}"/> </label>
                 </div>
 
                 <div class="form-group form-group--inline">
-                  <label> Miasto <input type="text" name="city" th:field="*{city}"/> </label>
+                  <label> Miasto <input type="text" name="city" id="cityInput" th:field="*{city}"/> </label>
                 </div>
 
                 <div class="form-group form-group--inline">
                   <label>
-                    Kod pocztowy <input type="text" name="postcode" th:field="*{zipCode}"/>
+                    Kod pocztowy <input type="text" name="postcode" id="postCodeInput" th:field="*{zipCode}"/>
                   </label>
                 </div>
 
                 <div class="form-group form-group--inline">
                   <label>
-                    Numer telefonu <input type="tel" name="phone" th:field="*{phoneNumber}"/>
+                    Numer telefonu <input type="tel" name="phone" id="phoneNumberInput" th:field="*{phoneNumber}"/>
                   </label>
                 </div>
               </div>
@@ -125,17 +125,17 @@
               <div class="form-section--column">
                 <h4>Termin odbioru</h4>
                 <div class="form-group form-group--inline">
-                  <label> Data <input type="date" name="data" th:field="*{pickUpDate}"/> </label>
+                  <label> Data <input type="date" name="data" id="pickUpDateInput" th:field="*{pickUpDate}"/> </label>
                 </div>
 
                 <div class="form-group form-group--inline">
-                  <label> Godzina <input type="time" name="time" th:field="*{pickUpTime}"/> </label>
+                  <label> Godzina <input type="time" name="time"id="pickUpTimeInput" th:field="*{pickUpTime}"/> </label>
                 </div>
 
                 <div class="form-group form-group--inline">
                   <label>
                     Uwagi dla kuriera
-                    <textarea name="more_info" rows="5" th:field="*{pickUpComment}"></textarea>
+                    <textarea name="more_info" rows="5" id="pickUpCommentInput" th:field="*{pickUpComment}"></textarea>
                   </label>
                 </div>
               </div>
@@ -163,7 +163,7 @@
 
                   <li>
                     <span class="icon icon-hand"></span>
-                    <span class="summary--text"
+                    <span class="summary--text" id="institution"
                       >Dla fundacji "Mam marzenie" w Warszawie</span
                     >
                   </li>
@@ -171,7 +171,7 @@
               </div>
 
               <div class="form-section form-section--columns">
-                <div class="form-section--column">
+                <div class="form-section--column" id="addressDataSummary">
                   <h4>Adres odbioru:</h4>
                   <ul>
                     <li>Prosta 51</li>
@@ -181,7 +181,7 @@
                   </ul>
                 </div>
 
-                <div class="form-section--column">
+                <div class="form-section--column" id="pickUpSummary">
                   <h4>Termin odbioru:</h4>
                   <ul>
                     <li>13/12/2018</li>
