@@ -201,9 +201,9 @@ document.addEventListener("DOMContentLoaded", function() {
       }
 
       let bags = document.getElementById("quantity").value;
-      if(bags===1){
+      if(bags==="1"){
         summaryBags[0].innerHTML=bags + " worek ubrań w dobrym stanie dla dzieci";
-      } else if(bags===2 || bags===3 || bags===4) {
+      } else if(bags==="2" || bags==="3" || bags==="4") {
         summaryBags[0].innerHTML=bags + " worki ubrań w dobrym stanie dla dzieci";
       } else {
         summaryBags[0].innerHTML=bags + " worków ubrań w dobrym stanie dla dzieci";
