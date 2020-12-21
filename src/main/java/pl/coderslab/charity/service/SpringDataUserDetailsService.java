@@ -2,6 +2,7 @@ package pl.coderslab.charity.service;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Primary;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -16,6 +17,7 @@ import java.util.List;
 
 
 @Service
+@Primary
 public class SpringDataUserDetailsService implements UserDetailsService {
     @Autowired
     private UserService userService;
