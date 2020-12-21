@@ -201,10 +201,16 @@ document.addEventListener("DOMContentLoaded", function() {
       }
 
       let bags = document.getElementById("quantity").value;
-      summaryBags[0].innerHTML=bags + " worki ubrań w dobrym stanie dla dzieci";
+      if(bags===1){
+        summaryBags[0].innerHTML=bags + " worek ubrań w dobrym stanie dla dzieci";
+      } else if(bags===2 || bags===3 || bags===4) {
+        summaryBags[0].innerHTML=bags + " worki ubrań w dobrym stanie dla dzieci";
+      } else {
+        summaryBags[0].innerHTML=bags + " worków ubrań w dobrym stanie dla dzieci";
+      }
     }
-
   }
+
   const form = document.querySelector(".form--steps");
   if (form !== null) {
     new FormSteps(form);
