@@ -166,16 +166,15 @@ document.addEventListener("DOMContentLoaded", function() {
       // TODO: get data from inputs and show them in summary
       let summaryBags = document.getElementsByClassName("summary--text");
 
-      let institutionInput = document.querySelectorAll("#institutions input");
-      let institutionSummary = document.querySelector("#institution");
-      let institutionNames = document.querySelectorAll("#institutionName");
-      let checkBoxes = document.querySelectorAll(".checkbox.radio");
-        for(let i=0; i<checkBoxes;i++){
-          if(institutionInput[i].checked){
-            institutionSummary.innerHTML=institutionNames[i].innerText;
-          }
-        }
 
+
+      let institution = document.querySelector("input[type=radio][name=organization]:checked")
+          .parentElement.querySelector("div.title");
+      // console.log(institution);
+      let institutionSummary = document.querySelector("");
+      console.log(institutionSummary);
+
+      institutionSummary.innerHTML="Dla fundacji " + institution.innerHTML + " w Warszawie";
 
 
 

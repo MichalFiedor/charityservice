@@ -75,18 +75,18 @@
           <div data-step="3">
             <h3>Wybierz organizacje, której chcesz pomóc:</h3>
 
-            <th:block th:each="institution : ${institutions}">
-            <div class="form-group form-group--checkbox" id="institutions">
+<!--            <th:block >-->
+            <div class="form-group form-group--checkbox" id="institutions" th:each="institution : ${institutions}">
               <label>
                 <input type="radio" name="organization" th:value="${institution.id}" th:field="*{institution}"/>
                 <span class="checkbox radio"></span>
                 <span class="description">
-                  <div class="title" id="institutionName" th:text="|Fundacja ${institution.name}|"></div>
+                  <div class="title" th:text="|Fundacja ${institution.name}|"></div>
                   <div class="subtitle" th:text="|Cel i misja: ${institution.description}|"></div>
                 </span>
               </label>
             </div>
-            </th:block>
+<!--            </th:block>-->
 
             <div class="form-group form-group--buttons">
               <button type="button" class="btn prev-step">Wstecz</button>
@@ -163,7 +163,7 @@
 
                   <li>
                     <span class="icon icon-hand"></span>
-                    <span class="summary--text" id="institution"
+                    <span class="summary--text" name="institution"
                       >Dla fundacji "Mam marzenie" w Warszawie</span
                     >
                   </li>
