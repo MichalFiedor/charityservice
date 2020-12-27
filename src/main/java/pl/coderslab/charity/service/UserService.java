@@ -7,6 +7,6 @@ public interface UserService {
 
     User findByUserName(String userName);
 
-    void saveUser(User user) throws UserAlreadyExistException;
+    User saveUser(User user) throws UserAlreadyExistException;
 
 }

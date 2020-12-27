@@ -14,7 +14,7 @@ public interface DonationService {
 
     void save(Donation donation);
 
-    Long sumBagsFromAllDonations();
+    Long sumBagsFromAllDonations() throws NullPointerException;
 
-    Long sumAllDonations();
+    Long sumAllDonations() throws NullPointerException;
 }

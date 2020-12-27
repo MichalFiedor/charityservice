@@ -10,4 +10,4 @@ INSERT INTO institution (description, name) VALUES ('Cel i misja: Pomoc wybudzan
 INSERT INTO institution (description, name) VALUES ('Cel i misja: Pomoc dla osób nie posiadających miejsca zamieszkania
 ', 'Bez domu');
 
-INSERT INTO role (role) VALUES ("ROLE_USER");
+INSERT INTO role (role) VALUES ('ROLE_USER');
