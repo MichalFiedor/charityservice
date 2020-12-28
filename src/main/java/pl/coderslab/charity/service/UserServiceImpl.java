@@ -1,6 +1,7 @@
 package pl.coderslab.charity.service;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Primary;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -27,7 +28,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public void saveUser(User user) throws UserAlreadyExistException {
+    public User saveUser(User user) throws UserAlreadyExistException {
         if(userExist(user.getUserName())){
             throw new UserAlreadyExistException("Account with that user name: " + user.getUserName() + " already exists.");
         }
@@ -36,6 +37,7 @@ public class UserServiceImpl implements UserService {
         Role userRole = roleRepository.findByName("ROLE_USER");
         user.setRoles(new ArrayList<>(Arrays.asList(userRole)));
         userRepository.save(user);
+        return user;
     }
 
 
