@@ -168,13 +168,12 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 
-      let institution = document.querySelector("input[type=radio][name=organization]:checked")
+      let institution = document.querySelector("input[type=radio][name=institution]:checked")
           .parentElement.querySelector("div.title");
-      // console.log(institution);
-      let institutionSummary = document.querySelector("");
-      console.log(institutionSummary);
 
-      institutionSummary.innerHTML="Dla fundacji " + institution.innerHTML + " w Warszawie";
+      let institutionSummary = document.querySelector("#institution");
+
+      institutionSummary.innerHTML=institution ? institution.innerText :"";
 
 
 
@@ -200,9 +199,9 @@ document.addEventListener("DOMContentLoaded", function() {
       }
 
       let bags = document.getElementById("quantity").value;
-      if(bags===1){
+      if(bags==1){
         summaryBags[0].innerHTML=bags + " worek ubrań w dobrym stanie dla dzieci";
-      } else if(bags===2 || bags===3 || bags===4) {
+      } else if(bags==2 || bags==3 || bags==4) {
         summaryBags[0].innerHTML=bags + " worki ubrań w dobrym stanie dla dzieci";
       } else {
         summaryBags[0].innerHTML=bags + " worków ubrań w dobrym stanie dla dzieci";
