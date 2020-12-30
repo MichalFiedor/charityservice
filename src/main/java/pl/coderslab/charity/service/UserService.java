@@ -9,4 +9,6 @@ public interface UserService {
 
     User saveUser(User user) throws UserAlreadyExistException;
 
+    User updateUser(User user);
+
 }

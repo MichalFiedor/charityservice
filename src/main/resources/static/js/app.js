@@ -164,8 +164,6 @@ document.addEventListener("DOMContentLoaded", function() {
       this.$step.parentElement.hidden = this.currentStep >= 5;
 
       // TODO: get data from inputs and show them in summary
-      let summaryBags = document.getElementsByClassName("summary--text");
-
 
 
       let institution = document.querySelector("input[type=radio][name=institution]:checked")
@@ -173,8 +171,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
       let institutionSummary = document.querySelector("#institution");
 
-      institutionSummary.innerHTML=institution ? institution.innerText :"";
-
+      institutionSummary.innerHTML = institution ? institution.innerText : "";
 
 
       let addressSummary = document.querySelectorAll("#addressDataSummary li");
@@ -185,26 +182,34 @@ document.addEventListener("DOMContentLoaded", function() {
       let postCodeValue = document.querySelector("#postCodeInput").value;
       let phoneNumberValue = document.querySelector("#phoneNumberInput").value;
 
-      let addressDataValueArray=[addressValue, cityValue, postCodeValue, phoneNumberValue];
-      for(let i=0; i<addressSummary.length;i++){
-        addressSummary[i].innerHTML=addressDataValueArray[i];
+      let addressDataValueArray = [addressValue, cityValue, postCodeValue, phoneNumberValue];
+      for (let i = 0; i < addressSummary.length; i++) {
+        addressSummary[i].innerHTML = addressDataValueArray[i];
       }
 
       let pickUpDateValue = document.querySelector("#pickUpDateInput").value;
       let pickUpTimeValue = document.querySelector("#pickUpTimeInput").value;
       let pickUpCommentValue = document.querySelector("#pickUpCommentInput").value;
       let pickUpValueArray = [pickUpDateValue, pickUpTimeValue, pickUpCommentValue];
-      for(let i=0; i<pickUpSummary.length;i++){
-        pickUpSummary[i].innerHTML=pickUpValueArray[i];
+      for (let i = 0; i < pickUpSummary.length; i++) {
+        pickUpSummary[i].innerHTML = pickUpValueArray[i];
       }
 
+      let summaryBags = document.querySelector("#bags");
+
       let bags = document.getElementById("quantity").value;
-      if(bags==1){
-        summaryBags[0].innerHTML=bags + " worek ubrań w dobrym stanie dla dzieci";
-      } else if(bags==2 || bags==3 || bags==4) {
-        summaryBags[0].innerHTML=bags + " worki ubrań w dobrym stanie dla dzieci";
+      if (bags == 1) {
+        summaryBags.innerText = bags + " worek z kategorii: ";
+      } else if (bags == 2 || bags == 3 || bags == 4) {
+        summaryBags.innerText = bags + " worki z kategorii: ";
       } else {
-        summaryBags[0].innerHTML=bags + " worków ubrań w dobrym stanie dla dzieci";
+        summaryBags.innerText = bags + " worków z kategorii: ";
+      }
+
+      let categories = document.querySelectorAll("input[type=checkbox][name=categories]:checked");
+
+      for (let i = 0; i < categories.length; i++) {
+        summaryBags.innerHTML += '<br> &nbsp; - ' + categories[i].parentElement.querySelector("span.description").innerText
       }
     }
   }

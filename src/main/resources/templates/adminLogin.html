@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}"/>
+  </head>
+  <body>
+    <header>
+      <nav class="container container--70">
+        <ul class="nav--actions">
+          <li><a th:href="@{/login}">Zaloguj</a></li>
+          <li class="highlighted"><a th:href="@{/registration}">Załóż konto</a></li>
+        </ul>
+
+        <ul>
+          <li><a th:href="@{/}" class="btn btn--without-border active">Start</a></li>
+          <li><a href="index.html#steps" class="btn btn--without-border">O co chodzi?</a></li>
+          <li><a href="index.html#about-us" class="btn btn--without-border">O nas</a></li>
+          <li><a href="index.html#help" class="btn btn--without-border">Fundacje i organizacje</a></li>
+          <li><a href="index.html#contact" class="btn btn--without-border">Kontakt</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <section class="login-page">
+      <h2>Zaloguj się</h2>
+      <form name="f" th:action="@{/admin_login}" method="POST">
+        <table>
+          <tr>
+            <td>User:</td>
+            <td><input type="text" name="username" value=""></td>
+          </tr>
+          <tr>
+            <td>Password:</td>
+            <td><input type="password" name="password" /></td>
+          </tr>
+          <tr>
+            <td><input name="submit" type="submit" value="submit" /></td>
+          </tr>
+        </table>
+      </form>
+    </section>
+
+    <footer th:include="fragments/footerPage :: pagefooter"></footer>
+
+  </body>
+</html>
