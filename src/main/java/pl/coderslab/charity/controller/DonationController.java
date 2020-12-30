@@ -41,7 +41,7 @@ public class DonationController {
         User user = userService.findByUserName(userName);
         user.addDonation(donation);
         donationService.save(donation);
-        userService.saveUser(user);
+        userService.updateUser(user);
         return "form-confirmation";
     }
 

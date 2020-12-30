@@ -40,6 +40,11 @@ public class UserServiceImpl implements UserService {
         return user;
     }
 
+    @Override
+    public User updateUser(User user) {
+        return userRepository.save(user);
+    }
+
 
     private boolean userExist(String userName) {
         return userRepository.findByUserName(userName)!=null;
